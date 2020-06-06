@@ -5,6 +5,8 @@ Chrome extension for printing JSON and JSONP nicely when you visit it 'directly'
 
 Features
 --------
+* Copy path to element by clicking on the key
+* Symbolize names option
 
 * JSONP support
 * Fast, even on long pages
@@ -19,10 +21,6 @@ A background worker is used to prevent the UI freezing when processing very long
 
 Installation
 ------------
-
-**Option 1** – just install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa).
-
-**Option 2** – install it from source:
 
 * clone/download this repo,
 * open Chrome and go to `chrome://chrome/extensions/`,
