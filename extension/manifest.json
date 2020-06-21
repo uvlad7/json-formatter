@@ -1,6 +1,6 @@
 {
   "name": "Ruby JSON path",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "Makes JSON easy to navigate. Open source.",
   "homepage_url": "https://github.com/uvlad7/json-formatter",
@@ -27,7 +27,12 @@
   ],
   "permissions": [
     "clipboardWrite",
+    "storage",
     "*://*/*",
     "<all_urls>"
-  ]
+  ],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": false
+  }
 }

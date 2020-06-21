@@ -171,6 +171,14 @@
         return span;
     }
 
+    function addPathToNode(node, path) {
+        node.setAttribute('role', 'button');
+        const json = JSON.stringify(path);
+        node.setAttribute('data-path', json);
+        node.setAttribute('onclick', 'copyPathToClipboard(event, JSON.parse(this.getAttribute(\'data-path\')))');
+        node.setAttribute('title', json.slice(1, -1));
+    }
+
     // Create template nodes
     var templatesObj = {
         t_kvov: getSpanClass('kvov'),
@@ -244,9 +252,7 @@
             // Create a span for the key name
             keySpan = templates.t_key.cloneNode(false);
             keySpan.textContent = JSON.stringify(keyName).slice(1, -1); // remove quotes
-            keySpan.setAttribute('role', 'button');
-            keySpan.setAttribute('data-path', JSON.stringify(path));
-            keySpan.setAttribute('onclick', 'copyPathToClipboard(JSON.parse(this.getAttribute(\'data-path\')))');
+            addPathToNode(keySpan, path);
             // Add it to kvov, with quote marks
             kvov.appendChild(templates.t_dblqText.cloneNode(false));
             kvov.appendChild(keySpan);
@@ -270,6 +276,7 @@
                 if (value[0] === 'h' && value.substring(0, 4) === 'http') { // crude but fast - some false positives, but rare, and UX doesn't suffer terribly from them.
                     var innerStringA = document.createElement('A');
                     innerStringA.href = value;
+                    innerStringA.target = '_blank';
                     innerStringA.innerText = escapedString;
                     innerStringEl.appendChild(innerStringA);
                 } else {
@@ -279,6 +286,7 @@
                 valueElement.appendChild(templates.t_dblqText.cloneNode(false));
                 valueElement.appendChild(innerStringEl);
                 valueElement.appendChild(templates.t_dblqText.cloneNode(false));
+                addPathToNode(valueElement, path);
                 kvov.appendChild(valueElement);
                 break;
 
@@ -286,6 +294,7 @@
                 // Simply add a number element (span.n)
                 valueElement = templates.t_number.cloneNode(false);
                 valueElement.innerText = value;
+                addPathToNode(valueElement, path);
                 kvov.appendChild(valueElement);
                 break;
 
@@ -295,7 +304,9 @@
                 // If any properties, add a blockInner containing k/v pair(s)
                 if (nonZeroSize) {
                     // Add ellipsis (empty, but will be made to do something when kvov is collapsed)
-                    kvov.appendChild(templates.t_ellipsis.cloneNode(false));
+                    valueElement = templates.t_ellipsis.cloneNode(false);
+                    addPathToNode(valueElement, path);
+                    kvov.appendChild(valueElement);
                     // Create blockInner, which indents (don't attach yet)
                     blockInner = templates.t_blockInner.cloneNode(false);
                     // For each key/value pair, add as a kvov to blockInner
@@ -326,13 +337,15 @@
                 // If non-zero length array, add blockInner containing inner vals
                 if (nonZeroSize) {
                     // Add ellipsis
-                    kvov.appendChild(templates.t_ellipsis.cloneNode(false));
+                    valueElement = templates.t_ellipsis.cloneNode(false);
+                    addPathToNode(valueElement, path);
+                    kvov.appendChild(valueElement);
                     // Create blockInner (which indents) (don't attach yet)
                     blockInner = templates.t_blockInner.cloneNode(false);
                     // For each key/value pair, add the markup
                     for (var i = 0, length = value.length, lastIndex = length - 1; i < length; i++) {
                         // Make a new kvov, with no key
-                        childKvov = getKvovDOM(value[i], false,  path.concat(i));
+                        childKvov = getKvovDOM(value[i], false, path.concat(i));
                         // Add comma if not last one
                         if (i < lastIndex)
                             childKvov.appendChild(templates.t_commaText.cloneNode());
@@ -348,13 +361,17 @@
 
             case TYPE_BOOL:
                 if (value)
-                    kvov.appendChild(templates.t_true.cloneNode(true));
+                    valueElement = templates.t_true.cloneNode(true);
                 else
-                    kvov.appendChild(templates.t_false.cloneNode(true));
+                    valueElement = templates.t_false.cloneNode(true);
+                addPathToNode(valueElement, path);
+                kvov.appendChild(valueElement);
                 break;
 
             case TYPE_NULL:
-                kvov.appendChild(templates.t_null.cloneNode(true));
+                valueElement = templates.t_null.cloneNode(true);
+                addPathToNode(valueElement, path);
+                kvov.appendChild(valueElement);
                 break;
         }
 

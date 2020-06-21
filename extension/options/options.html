@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+</head>
+<body>
+<div>
+    <p>Preferred path</p>
+    <div>
+        <input type="radio" name="langRadio"
+               id="langJS" value="langJS">
+        <label for="langJS">
+            JavaScript
+            <small>json.formatter[1];</small>
+        </label>
+    </div>
+    <label for="langRuby">Ruby</label>
+    <div id="langRuby">
+        <div>
+            <input type="radio" name="langRadio"
+                   id="langRubyDig" value="langRubyDig">
+            <label for="langRubyDig">
+                Use dig
+                <small>json.dig(:formatter, 1)</small>
+            </label>
+        </div>
+        <div>
+            <input type="radio" name="langRadio"
+                           id="langRubyBrc" value="langRubyBrc">
+            <label for="langRubyBrc">
+                Use [] operator
+                <small>json[:formatter][1]</small>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="symbolize" checked
+                   id="symbolize" value="symbolize">
+            <label for="symbolize">
+                Symbolize names
+            </label>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button id="save">Save</button><label for="save" id="status"></label>
+</div>
+
+
+<script src="options.js"></script>
+</body>
+</html>

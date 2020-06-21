@@ -5,15 +5,19 @@ Chrome extension for printing JSON and JSONP nicely when you visit it 'directly'
 
 Features
 --------
-* Copy path to element by clicking on the key
-* Symbolize names option
+* Copy path to element by ctrl+clicking on the key
+* Copy path to value by ctrl+click on string, number, boolean, null
+* Copy path to array or hash by ctrl+click on ellipsis when it's collapsed
+* Select language for path syntax: JS and Ruby are available 
+* Symbolize names option for Ruby
+* Save preferred syntax settings
 
 * JSONP support
 * Fast, even on long pages
 * Works on any valid JSON page – URL doesn't matter
 * Syntax highlighting
 * Collapsible trees, with indent guides
-* Clickable URLs
+* Clickable URLs (opens in new tab by default, so you won't mis-copy path)
 * Buttons for switching between raw and parsed JSON
 * Parsed JSON is exported as a global variable, `json`, so you can inspect it in the console
 
@@ -30,9 +34,9 @@ Installation
 
 **Some URLs to try it on:**
 
-* http://feeds.delicious.com/v2/json/popular?callback=hello
-* http://gdata.youtube.com/feeds/api/standardfeeds/most_popular?alt=json&v=2
-* http://twitter.com/statuses/public_timeline.json
+* https://www.ulta.com/services/v5/pdp/dynamicdata?skuId=2290008
+* https://api.bazaarvoice.com/data/display/0.3alpha/product/summary?PassKey=caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ&productid=A20218110&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES
+* https://display.powerreviews.com/m/6406/l/en_US/product/VP11362/reviews?paging.from=0&paging.size=25&filters=&search=&sort=Newest&image_only=false&native_only=true&apikey=daa0f241-c242-4483-afb7-4449942d1a2b
 
 FAQ
 ---
