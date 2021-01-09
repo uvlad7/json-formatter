@@ -11,6 +11,7 @@ Features
 * Select language for path syntax: JS and Ruby are available 
 * Symbolize names option for Ruby
 * Save preferred syntax settings
+* Add a 'JSON' pane into the Chrome Dev Tools Elements tab to view parsed content of application/json script tags
 
 * JSONP support
 * Fast, even on long pages
@@ -26,6 +27,10 @@ A background worker is used to prevent the UI freezing when processing very long
 Installation
 ------------
 
+**Option 1** – Install it from the [Chrome Web Store (link will be here soon)]()
+
+**Option 2** – Install it from source:
+
 * clone/download this repo,
 * open Chrome and go to `chrome://chrome/extensions/`,
 * enable "Developer mode",
@@ -37,6 +42,7 @@ Installation
 * https://www.ulta.com/services/v5/pdp/dynamicdata?skuId=2290008
 * https://api.bazaarvoice.com/data/display/0.3alpha/product/summary?PassKey=caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ&productid=A20218110&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES
 * https://display.powerreviews.com/m/6406/l/en_US/product/VP11362/reviews?paging.from=0&paging.size=25&filters=&search=&sort=Newest&image_only=false&native_only=true&apikey=daa0f241-c242-4483-afb7-4449942d1a2b
+* https://www.walmart.com/browse/patio-garden/patio-sets/5428_91416_3013177
 
 FAQ
 ---
