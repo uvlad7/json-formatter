@@ -146,7 +146,7 @@
     // }
 
     // Record current version (in case future update wants to know)
-    localStorage.jfVersion = '0.5.6';
+    localStorage.jfVersion = '0.1.1';
 
     // Template elements
     var templates,
@@ -451,7 +451,7 @@
 
                     // Get the substring up to the first "(", with any comments/whitespace stripped out
                     var firstBit = removeComments(text.substring(0, indexOfParen)).trim();
-                    if (!firstBit.match(/^[a-zA-Z_$][\.\[\]'"0-9a-zA-Z_$]*$/)) {
+                    if (!firstBit.match(/^[a-zA-Z_$][.\[\]'"0-9a-zA-Z_$]*$/)) {
                         // The 'firstBit' is NOT a valid function identifier.
                         port.postMessage(['NOT JSON', 'first bit not a valid function name']);
                         port.disconnect();

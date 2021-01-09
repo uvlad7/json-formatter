@@ -42,11 +42,12 @@
         jfStyleEl,
         slowAnalysisTimeout,
         port,
-        startTime = +(new Date()),
-        domReadyTime,
-        isJsonTime,
-        exitedNotJsonTime,
-        displayedFormattedJsonTime, symbolize;
+        // startTime = +(new Date()),
+        // domReadyTime,
+        // isJsonTime,
+        // exitedNotJsonTime,
+        // displayedFormattedJsonTime,
+        symbolize;
 
     // Open the port "jf" now, ready for when we need it
     // console.time('established port') ;
@@ -60,11 +61,11 @@
                 pre.hidden = false;
                 // console.log('Unhidden the PRE') ;
                 document.body.removeChild(jfContent);
-                exitedNotJsonTime = +(new Date());
+                // exitedNotJsonTime = +(new Date());
                 break;
 
             case 'FORMATTING' :
-                isJsonTime = +(new Date());
+                // isJsonTime = +(new Date());
 
                 // It is JSON, and it's now being formatted in the background worker.
 
@@ -219,7 +220,7 @@
                 // Insert HTML content
                 jfContent.innerHTML = msg[1];
 
-                displayedFormattedJsonTime = Date.now();
+                // displayedFormattedJsonTime = Date.now();
 
                 // Log times
                 //console.log('DOM ready took '+ (domReadyTime - startTime) +'ms' ) ;
@@ -307,7 +308,7 @@
 
     function ready() {
 
-        domReadyTime = Date.now();
+        // domReadyTime = Date.now();
 
         // First, check if it's a PRE and exit if not
         var bodyChildren = document.body.childNodes;
@@ -453,7 +454,7 @@
 
                 // Restore scrollTop somehow
                 // Clear current extra margin, if any
-                div.style.marginBottom = 0;
+                div.style.marginBottom = '0';
 
                 // No need to worry if all content fits in viewport
                 if (document.body.offsetHeight < window.innerHeight) {
@@ -482,7 +483,7 @@
                 // Now change the scrollTop back to what it was
                 document.body.scrollTop = scrollTop;
 
-                return;
+                // return;
             }
         }
     }
