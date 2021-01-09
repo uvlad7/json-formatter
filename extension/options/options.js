@@ -2,9 +2,11 @@
 function save_options() {
     const type = document.querySelector('input[name="langRadio"]:checked').value;
     const symbolize = document.getElementById('symbolize').checked;
+    const devtools = document.getElementById('devtools').checked;
     chrome.storage.sync.set({
         favoritePath: type,
-        symbolizeNames: symbolize
+        symbolizeNames: symbolize,
+        createElementsPane: devtools
     }, function () {
         // Update status to let user know options were saved.
         const status = document.getElementById('status');
@@ -21,10 +23,12 @@ function restore_options() {
     // Use default value color = 'red' and likesColor = true.
     chrome.storage.sync.get({
         favoritePath: 'langRubyDig',
-        symbolizeNames: true
+        symbolizeNames: true,
+        createElementsPane: true
     }, function (items) {
         document.getElementById(items.favoritePath).checked = true;
         document.getElementById('symbolize').checked = items.symbolizeNames;
+        document.getElementById('devtools').checked = items.createElementsPane;
         changeLabels();
     });
 }
