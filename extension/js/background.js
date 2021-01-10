@@ -1,3 +1,5 @@
+//git diff -w HEAD~7 HEAD extension/js/background.js
+
 // ==ClosureCompiler==
 // @compilation_level ADVANCED_OPTIMIZATIONS
 // @output_file_name background.js
