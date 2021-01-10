@@ -146,7 +146,7 @@
     // }
 
     // Record current version (in case future update wants to know)
-    localStorage.jfVersion = '0.1.1';
+    localStorage.jfVersion = '1.1.0';
 
     // Template elements
     var templates,
