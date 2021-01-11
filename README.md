@@ -37,6 +37,12 @@ Installation
 * click "Load unpacked extension",
 * select the `extension` folder in this repo.
 
+**Option 3** – Download from the [Releases tab](https://github.com/uvlad7/json-formatter/releases):
+
+* download zip file
+* unpack it
+* load unpacked extension as in previous option
+
 **Some URLs to try it on:**
 
 * https://www.ulta.com/services/v5/pdp/dynamicdata?skuId=2290008
