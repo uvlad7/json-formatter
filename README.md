@@ -36,12 +36,15 @@ Installation
 * enable "Developer mode",
 * click "Load unpacked extension",
 * select the `extension` folder in this repo.
+* **don't forget to reload the extension installed this way after update**
+* when you did `git pull` go to `chrome://chrome/extensions/` and press reload button on the extension card
 
 **Option 3** – Download from the [Releases tab](https://github.com/uvlad7/json-formatter/releases):
 
 * download zip file
 * unpack it
 * load unpacked extension as in previous option
+* reload the extension after update (see instructions above) 
 
 **Some URLs to try it on:**
 
