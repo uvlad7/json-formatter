@@ -27,7 +27,7 @@ A background worker is used to prevent the UI freezing when processing very long
 Installation
 ------------
 
-**Option 1** – Install it from the [Chrome Web Store (link will be here soon)]()
+**Option 1** – Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/ruby-json-path/djfnpdpjloopnbialfoebiomkgkjnone)
 
 **Option 2** – Install it from source:
 
